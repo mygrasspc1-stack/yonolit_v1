@@ -9,3 +9,14 @@ dev/shots/
 
 # آیکون‌های خام دانلودشده (نسخهٔ نهایی در assets/social است)
 dev/icons/
+
+# حافظه و لاگ‌های روزانهٔ ایجنت (فایل سایت نیست)
+.workbuddy-ai/
+
+# استودیو ویرایش محلی (فقط برای توسعه)
+dev/studio.html
+dev/studio-state.json
+
+# بکاپ‌های HTML
+tools/_backup-head/
+*.backup*.html
