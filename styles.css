@@ -486,3 +486,24 @@ figure:hover img[src*="baseball-ball-mockup"],
 .process-list li{border-inline-start:1px solid #2a3644}
 .process-list li:hover{background:#151d27}
 .process-list span{color:#9aa7b6}
+
+/* ==========================================================================
+   v17 — خوانایی متن هشت مرحله (بعد از مفصل‌شدن توضیح‌ها)
+   توضیح هر گام از یک خط به دو-سه جمله رسید؛ با فونت ۱۱px و تراز
+   دوطرفه، خطوط کشیده و ناخوانا می‌شدند.
+   ========================================================================== */
+
+/* اندازهٔ متن از ۱۱ به ۱۲ و ارتفاع خط بازتر؛ تراز راست تا فاصله‌ها کشیده نشود */
+.process-list span{font-size:12px;line-height:1.95;text-align:right;color:#a6b2c0}
+
+/* ارتفاع حداقلی کارت‌ها بالا رفت تا ردیف‌ها هم‌قد بمانند */
+.process-list li{min-height:196px;padding:18px 16px 20px}
+
+/* عنوان گام کمی بزرگ‌تر تا سلسله‌مراتب با متن جدید حفظ شود */
+.process-list strong{font-size:15px;line-height:1.6}
+
+/* موبایل: دو ستون باریک است، فونت یک پله کوچک‌تر و ارتفاع کمتر */
+@media (max-width:600px){
+  .process-list span{font-size:11px;line-height:1.85}
+  .process-list li{min-height:170px}
+}
