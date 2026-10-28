@@ -1,3 +1,128 @@
 {
- "styles": []
+ "styles": [
+  {
+   "page": "home",
+   "selector": "p.section-side > a.text-link:nth-of-type(2)",
+   "props": {
+    "font-size": "22px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side > a.text-link:nth-of-type(1)",
+   "props": {
+    "font-size": "16px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "#cases-title",
+   "props": {
+    "font-size": "37px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(1) > div.case-body > p",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(1) > div.case-body > span.case-tag",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(1) > a",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(2) > a",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(2) > div.case-body > span.case-tag",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(2) > div.case-body > p",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(1) > a",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(2) > a",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(3) > div.case-body > span.case-tag",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(3) > div.case-body > p",
+   "props": {
+    "font-size": "15px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(1) > a",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(2) > a",
+   "props": {
+    "font-size": "13px",
+    "line-height": "2",
+    "color": "#2a48a2"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "div.process-head.reveal > img",
+   "props": {
+    "align-items": "flex-start",
+    "flex-direction": "row",
+    "gap": "20%",
+    "padding": "20px"
+   }
+  }
+ ]
 }
