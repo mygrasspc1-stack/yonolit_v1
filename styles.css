@@ -421,14 +421,43 @@ body[data-page="home"] #cases-title{font-size:37px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > p{font-size:15px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > span.case-tag{font-size:13px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > span.case-tag{font-size:15px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > p{font-size:15px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > span.case-tag{font-size:15px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > p{font-size:15px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
 body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;line-height:2;color:#2a48a2;}
 body[data-page="home"] div.process-head.reveal > img{align-items:flex-start;flex-direction:row;gap:20%;padding:20px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#14004d;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#001642;}
+body[data-page="home"] div.feature-note:nth-of-type(2) > p{font-size:25px;}
+body[data-page="home"] div.feature-note:nth-of-type(2) > a{font-size:18px;color:#00162e;}
 /* ==== STUDIO:END ==== */
+
+/* ==========================================================================
+   v15 — عکس «قبل / در حال ساخت / بعد» توپ بیسبال
+   این عکس خودش متن فارسی دارد (عنوان بالا، برچسب «قبل» و «بعد» پایین).
+   با object-fit:cover کناره‌ها بریده می‌شد و روی هاور هم scale می‌خورد،
+   در نتیجه متن‌ها می‌رفتند زیر لبهٔ کادر و خوانده نمی‌شدند.
+   راه‌حل: contain برای همین عکس + خاموش‌کردن زوم هاور در هر سه جایی
+   که این تصویر استفاده شده (کارت نمونه‌کار، گالری، کاربردها).
+   ========================================================================== */
+
+/* خود عکس: contain تا تمام قاب دیده شود و هیچ لبه‌ای بریده نشود.
+   سلکتور باید به اندازهٔ کافی اختصاصی باشد، وگرنه
+   «.case-card figure img{object-fit:cover}» با وزن بالاتر برنده می‌شود. */
+.case-card figure img[src*="baseball-ball-mockup"],
+.gallery-item img[src*="baseball-ball-mockup"],
+.panel-grid img[src*="baseball-ball-mockup"],
+.svc-case-item img[src*="baseball-ball-mockup"]{object-fit:contain;object-position:center}
+
+/* زوم هاور خاموش — !important چون قواعد هاور دیگر با سلکتور طولانی‌تر نوشته شده‌اند */
+figure:hover img[src*="baseball-ball-mockup"],
+.case-card:hover figure img[src*="baseball-ball-mockup"],
+.gallery-item:hover img[src*="baseball-ball-mockup"],
+.svc-case-item:hover img[src*="baseball-ball-mockup"]{transform:none!important}
+
+/* پس‌زمینهٔ کادر هم‌رنگ فضای خود عکس تا نوارهای بالا/پایین توی چشم نزند */
+.case-card figure:has(> img[src*="baseball-ball-mockup"]),
+.gallery-item:has(> img[src*="baseball-ball-mockup"]){background:#0e1219}
