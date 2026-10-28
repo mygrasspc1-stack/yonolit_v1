@@ -461,3 +461,28 @@ figure:hover img[src*="baseball-ball-mockup"],
 /* پس‌زمینهٔ کادر هم‌رنگ فضای خود عکس تا نوارهای بالا/پایین توی چشم نزند */
 .case-card figure:has(> img[src*="baseball-ball-mockup"]),
 .gallery-item:has(> img[src*="baseball-ball-mockup"]){background:#0e1219}
+
+/* ==========================================================================
+   v16 — بخش «هشت مرحله» با اینفوگرافیک تیره
+   تصویر جدید خودش پس‌زمینهٔ سرمه‌ای تیره با نور کهربایی دارد؛ اگر روی
+   پس‌زمینهٔ سبز-خاکستری قبلی (--ink) بماند، لبه‌هایش به‌صورت یک مستطیل
+   جدا دیده می‌شود. پس زمینهٔ کل بخش با محیط خود عکس هم‌رنگ می‌شود.
+   ========================================================================== */
+
+/* پس‌زمینهٔ بخش: هم‌رنگ فضای عکس (سرمه‌ای تیره) نه خاکستری گرم قبلی */
+.process-section{background:#0d1218}
+
+/* سرِ بخش تک‌ستونی شد چون تصویر از این ستون بیرون رفت و تمام‌عرض شد */
+.process-head{grid-template-columns:1fr;gap:0;margin-bottom:22px}
+
+/* قاب تصویر: تمام‌عرض، بدون برش، با خط مویی هم‌رنگ محیط عکس */
+.process-visual{max-width:1080px;margin:0 auto 30px;background:#0d1218;border:1px solid #26313f;overflow:hidden}
+
+/* ارتفاع خودکار: نسبت تصویر حفظ می‌شود و هیچ بخشی بریده نمی‌شود */
+.process-visual img{width:100%;height:auto;display:block}
+
+/* خطوط جدول هشت مرحله از خاکستری گرم به سرمه‌ای سرد تغییر می‌کند */
+.process-list{border-top:1px solid #2a3644}
+.process-list li{border-inline-start:1px solid #2a3644}
+.process-list li:hover{background:#151d27}
+.process-list span{color:#9aa7b6}
