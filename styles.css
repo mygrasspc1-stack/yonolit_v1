@@ -621,3 +621,24 @@ body[data-page="home"] div:nth-of-type(2) > span.footer-label{font-size:13px;}
 body[data-page="home"] div:nth-of-type(3) > span.footer-label{font-size:13px;}
 body[data-page="home"] div.footer-end:nth-of-type(4) > span{gap:0px;flex-direction:column;justify-content:flex-end;object-fit:fill;}
 /* ==== STUDIO:END ==== */
+
+/* ============================================================
+   v20 — تصویر دیوار برند به‌عنوان بافت پس‌زمینهٔ فوتر (۱۰٪)
+   ============================================================ */
+
+/* فوتر باید لایه‌بندی مستقل بسازد، وگرنه لایهٔ ::before با z-index:-1
+   از پشت پس‌زمینهٔ خودِ فوتر بیرون می‌زند و دیده نمی‌شود */
+footer{position:relative;isolation:isolate}
+
+/* لایهٔ تصویر: تمام‌سطح فوتر، بدون گرفتن کلیک، با شفافیت ۱۰٪ */
+footer::before{content:'';position:absolute;inset:0;background:url("assets/brand-wall.webp") center/cover no-repeat;opacity:.10;pointer-events:none;z-index:-1}
+
+/* زیر ۹۰۰px ستون‌های فوتر می‌شکنند و فوتر بلند می‌شود؛ آن‌وقت cover تصویر را
+   تا ۲ برابر بزرگ می‌کند و حروف لوگو غول می‌شوند و با لینک‌ها رقابت می‌کنند.
+   با بلور ملایم همان بافت گرم می‌ماند ولی دیگر به‌عنوان متن خوانده نمی‌شود.
+   بدون scale: بزرگ‌کردن لایه باعث می‌شد بلور از لبه‌های فوتر بیرون بزند. */
+@media (max-width:900px){
+  footer::before{background-position:center;filter:blur(10px)}
+}
+
+/* حرکت کمتر: بافت ثابت است و تغییری لازم ندارد */
