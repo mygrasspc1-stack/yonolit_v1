@@ -507,3 +507,44 @@ figure:hover img[src*="baseball-ball-mockup"],
   .process-list span{font-size:11px;line-height:1.85}
   .process-list li{min-height:170px}
 }
+
+/* ============================================================
+   v18 — اطلاعات تماس واقعی: نام، تلفن، تلگرام/ایتا/بله
+   ============================================================ */
+
+/* نام مسئول پاسخ‌گویی کنار شماره در فوتر، کوچک و کم‌رنگ تا شماره اصل بماند */
+footer div > a small{display:inline-block;margin-inline-start:6px;font-size:9px;font-weight:400;color:#7d847b;letter-spacing:0}
+
+/* ردیف شبکه‌های اجتماعی فوتر: چون footer div>a همه را block می‌کند، اینجا flex می‌شود */
+.footer-social{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 9px}
+
+/* هر لینک شبکه اجتماعی به شکل چیپ کوچک با قاب نازک */
+.footer-social a{display:inline-block;padding:4px 10px;border:1px solid #333a33;font-size:9px;line-height:1.7;color:#c3c9c0;transition:border-color .25s,color .25s,background .25s}
+
+/* هاور: نارنجی برند، هم‌راستا با بقیه‌ی تعامل‌های سایت */
+.footer-social a:hover{border-color:var(--orange);background:rgba(231,102,45,.12);color:#fff}
+
+/* ستون تماس کنار فرم: نام شخص، بالای شماره و پررنگ */
+.form-aside .contact-lines .contact-person{display:block;color:#fff;font-size:13px;font-weight:700;letter-spacing:-.01em}
+
+/* شماره تلفن کمی بزرگ‌تر و با فونت نمایشی تا اولین چیزی باشد که دیده می‌شود */
+.form-aside .contact-lines .contact-phone{font-family:'Space Grotesk',Estedad,sans-serif;font-size:15px;letter-spacing:.02em}
+
+/* ساعت کاری کم‌رنگ‌تر از شماره تا سلسله‌مراتب تماس حفظ شود */
+.form-aside .contact-lines .contact-hours{color:#a8ada5}
+
+/* ردیف شبکه‌های اجتماعی در صفحه‌ی تماس */
+.form-aside .contact-lines .contact-social{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+
+/* چیپ‌ها؛ specificity بالاتر از .form-aside .contact-lines a تا استایل پایه را نشکند */
+.form-aside .contact-lines .contact-social a{color:#fff;border:1px solid #3b413c;padding:5px 11px;font-size:10px;justify-self:auto;transition:background .25s,border-color .25s}
+
+/* هاور چیپ‌ها */
+.form-aside .contact-lines .contact-social a:hover{background:var(--orange);border-color:var(--orange)}
+
+/* موبایل: چیپ‌ها کمی فشرده‌تر تا در یک ردیف جا شوند */
+@media (max-width:600px){
+  .footer-social{gap:5px}
+  .footer-social a{padding:3px 8px;font-size:8px}
+  .form-aside .contact-lines .contact-social a{padding:4px 9px;font-size:9px}
+}

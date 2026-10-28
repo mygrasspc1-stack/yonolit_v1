@@ -19,12 +19,12 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
-PAGES = ["index.html", "services.html", "portfolio.html", "applications.html", "contact.html"]
+PAGES = ["index.html", "services.html", "cnc.html", "portfolio.html", "applications.html", "contact.html"]
 SHIPPED = PAGES + ["script.js", "gsap-site.js", "styles.css", "sitemap.xml", "robots.txt"]
 
-DOMAIN = "https://yonolit-decor.ir"
+DOMAIN = "https://yonolitdecor.ir"
 BRAND_EMAIL = "hello@yonolit-decor.ir"
-BRAND_PHONE = "+982100000000"
+BRAND_PHONE = "+989122530650"
 CANONICAL = {"index.html": DOMAIN + "/", **{p: f"{DOMAIN}/{p}" for p in PAGES if p != "index.html"}}
 
 ATTR = re.compile(r'(?:href|src)\s*=\s*"([^"]+)"')
@@ -54,7 +54,7 @@ for page in PAGES:
 
 # ---------- A. پوستهٔ صفحه ----------
 for page, doc in html.items():
-    check("A", len(re.findall(r"<title>", doc)) == 1, f"{page}: تعداد title برابر {len(re.findall('<title>', doc))} است")
+    check("A", len(re.findall(r"<title[^>]*>", doc)) == 1, f"{page}: تعداد title برابر {len(re.findall(r'<title[^>]*>', doc))} است")
     check("A", len(re.findall(r'<meta name="description"', doc)) == 1, f"{page}: متا توضیح دقیقاً یکی نیست")
     check("A", len(re.findall(r'<link rel="canonical"', doc)) == 1, f"{page}: canonical دقیقاً یکی نیست")
     check("A", len(re.findall(r"<h1", doc)) == 1, f"{page}: تعداد h1 برابر {len(re.findall('<h1', doc))} است")
@@ -64,7 +64,7 @@ for page, doc in html.items():
     og_url = re.search(r'<meta property="og:url" content="([^"]+)"', doc)
     check("A", og_url and og_url.group(1) == CANONICAL[page], f"{page}: og:url با canonical هم‌خوان نیست")
 
-titles = [m.group(1) for m in (re.search(r"<title>([^<]+)</title>", d) for d in html.values()) if m]
+titles = [m.group(1) for m in (re.search(r"<title[^>]*>([^<]+)</title>", d) for d in html.values()) if m]
 check("A", len(titles) == len(PAGES) and len(set(titles)) == len(PAGES), "عنوان صفحه‌ها بین صفحه‌ها یکتا نیست")
 descs = [m.group(1) for m in (re.search(r'<meta name="description" content="([^"]+)"', d) for d in html.values()) if m]
 check("A", len(descs) == len(PAGES) and len(set(descs)) == len(PAGES), "توضیح متا بین صفحه‌ها یکتا نیست")
@@ -141,7 +141,7 @@ for name, text in shipped.items():
         check("D", old not in text, f"{name}: نشانی/نام قدیمی باقی‌مانده → «{old}»")
 
 sitemap = shipped["sitemap.xml"]
-locs = set(re.findall(r"<loc>([^<]+)</loc>", sitemap))
+locs = set(re.findall(r"(?<!image:)<loc>([^<]+)</loc>", sitemap))
 check("D", locs == set(CANONICAL.values()), f"sitemap ≠ canonical‌ها → {sorted(locs)}")
 check("D", f"{DOMAIN}/sitemap.xml" in shipped["robots.txt"], "robots.txt به sitemap اشاره نمی‌کند")
 
