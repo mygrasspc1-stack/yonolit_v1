@@ -413,27 +413,7 @@ footer div>a{display:block;padding:2px 0}
   .ilink b{font-size:12px}
 }
 
-/* ==== STUDIO:START — ساختهٔ پنل ویرایش، پاک کردنش آزاد است ==== */
-body[data-page="home"] p.section-side > a.text-link:nth-of-type(2){font-size:22px;}
-body[data-page="home"] section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side{font-size:15px;}
-body[data-page="home"] section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side > a.text-link:nth-of-type(1){font-size:16px;}
-body[data-page="home"] #cases-title{font-size:37px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > p{font-size:15px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > span.case-tag{font-size:13px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > span.case-tag{font-size:15px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > p{font-size:15px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > span.case-tag{font-size:15px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > p{font-size:15px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;line-height:2;color:#2a48a2;}
-body[data-page="home"] div.process-head.reveal > img{align-items:flex-start;flex-direction:row;gap:20%;padding:20px;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#14004d;}
-body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#001642;}
-body[data-page="home"] div.feature-note:nth-of-type(2) > p{font-size:25px;}
-body[data-page="home"] div.feature-note:nth-of-type(2) > a{font-size:18px;color:#00162e;}
-/* ==== STUDIO:END ==== */
+
 
 /* ==========================================================================
    v15 — عکس «قبل / در حال ساخت / بعد» توپ بیسبال
@@ -548,3 +528,96 @@ footer div > a small{display:inline-block;margin-inline-start:6px;font-size:9px;
   .footer-social a{padding:3px 8px;font-size:8px}
   .form-aside .contact-lines .contact-social a{padding:4px 9px;font-size:9px}
 }
+
+
+
+/* ============================================================
+   v19 — ریل آیکون پیام‌رسان‌ها روی کف صفحه
+   ============================================================ */
+
+/* پدینگ پایین فوتر صفر می‌شود تا آیکون‌ها واقعاً به لبهٔ پایین صفحه برسند */
+footer{padding-bottom:0}
+
+/* ریل تمام‌عرض، آخرین ردیف گرید فوتر؛ خط مویی بالا مثل «خط افق» کف صحنه */
+.social-rail{grid-column:1 / -1;display:flex;align-items:flex-end;justify-content:flex-start;gap:46px;margin-top:8px;padding-top:24px;border-top:1px solid #262c26}
+
+/* هر آیتم یک ستون است: نوشته بالا، آیکون زیرش */
+.social-item{display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none}
+
+/* برچسب بالای آیکون، کم‌رنگ تا آیکون غالب باشد */
+.social-item span{font-size:9px;letter-spacing:.02em;color:#7d847b;transition:color .25s}
+
+/* آیکون گرد، هم‌اندازه و هم‌تراز برای هر سه پیام‌رسان */
+.social-item img{display:block;width:40px;height:40px;border-radius:50%;object-fit:cover;filter:grayscale(.2);transition:filter .3s,transform .3s}
+
+/* هاور: رنگ کامل + کمی بالا آمدن، بدون تغییر چیدمان */
+.social-item:hover span{color:#fff}
+.social-item:hover img{filter:none;transform:translateY(-4px)}
+
+/* حالت اولیهٔ سقوط؛ فقط وقتی جاوااسکریپت کلاس را اضافه کند اعمال می‌شود */
+.social-rail.is-falling .social-item{opacity:0;transform:translateY(-46px)}
+
+/* منحنی با کمی اورشوت تا آیکون‌ها «روی کف» بنشینند، نه اینکه محو شوند */
+.social-rail.is-falling .social-item{transition:opacity .45s ease,transform .6s cubic-bezier(.22,.9,.3,1.22)}
+
+/* پایان سقوط: سر جای خودشان، روی کف */
+.social-rail.is-falling .social-item.is-landed{opacity:1;transform:none}
+
+/* موبایل: فاصله‌ها کمتر و ریل تمام‌عرض تقسیم می‌شود */
+@media (max-width:600px){
+  .social-rail{gap:0;justify-content:space-around;padding-top:20px}
+  .social-item img{width:34px;height:34px}
+  .social-item span{font-size:8px}
+}
+
+/* حرکت کمتر: بدون سقوط، آیکون‌ها از ابتدا سر جای خودشان هستند */
+@media (prefers-reduced-motion:reduce){
+  .social-rail.is-falling .social-item{opacity:1;transform:none;transition:none}
+}
+
+/* چیپ‌های پیام‌رسان کنار فرم: چون img سراسری block است،
+   بدون این قاعده آیکون و متن زیر هم می‌افتند. اینجا افقی و وسط‌چین می‌شوند. */
+.form-aside .contact-lines .contact-social a{display:inline-flex;align-items:center;gap:5px}
+
+/* آیکون کوچک داخل چیپ، بدون قاب گرد تا کنار متن تمیز بنشیند */
+.form-aside .contact-lines .contact-social a img{width:15px;height:15px;border-radius:50%;flex:0 0 auto}
+
+/* ==== STUDIO:START — ساختهٔ پنل ویرایش، پاک کردنش آزاد است ==== */
+body[data-page="home"] p.section-side > a.text-link:nth-of-type(2){font-size:22px;}
+body[data-page="home"] section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side{font-size:15px;}
+body[data-page="home"] section.section.cases-section:nth-of-type(5) > div.section-heading.split.reveal:nth-of-type(1) > p.section-side > a.text-link:nth-of-type(1){font-size:16px;}
+body[data-page="home"] #cases-title{font-size:37px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > p{font-size:15px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > span.case-tag{font-size:13px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > span.case-tag{font-size:15px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > p{font-size:15px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > span.case-tag{font-size:15px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > p{font-size:15px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(1) > a{font-size:14px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(3) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;line-height:2;color:#2a48a2;}
+body[data-page="home"] div.process-head.reveal > img{align-items:flex-start;flex-direction:row;gap:20%;padding:20px;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(2) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#14004d;}
+body[data-page="home"] article.case-card.reveal:nth-of-type(1) > div.case-body > ul.case-links > li:nth-of-type(2) > a{font-size:13px;color:#001642;}
+body[data-page="home"] div.feature-note:nth-of-type(2) > p{font-size:25px;}
+body[data-page="home"] div.feature-note:nth-of-type(2) > a{font-size:18px;color:#00162e;}
+body[data-page="home"] div.ilinks-head > div > p.kicker{font-size:16px;}
+body[data-page="home"] #ilinks-index{font-size:25px;}
+body[data-page="home"] a.ilink:nth-of-type(1) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(1) > span{font-size:13px;}
+body[data-page="home"] a.ilink:nth-of-type(2) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(2) > span{font-size:13px;}
+body[data-page="home"] a.ilink:nth-of-type(4) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(4) > span{font-size:13px;}
+body[data-page="home"] a.ilink:nth-of-type(3) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(3) > span{font-size:13px;}
+body[data-page="home"] a.ilink:nth-of-type(5) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(5) > span{font-size:13px;}
+body[data-page="home"] a.ilink:nth-of-type(6) > b{font-size:14px;}
+body[data-page="home"] a.ilink:nth-of-type(6) > span{font-size:13px;}
+body[data-page="home"] p.ilinks-side{font-size:15px;color:#080217;}
+body[data-page="home"] div:nth-of-type(2) > span.footer-label{font-size:13px;}
+body[data-page="home"] div:nth-of-type(3) > span.footer-label{font-size:13px;}
+body[data-page="home"] div.footer-end:nth-of-type(4) > span{gap:0px;flex-direction:column;justify-content:flex-end;object-fit:fill;}
+/* ==== STUDIO:END ==== */

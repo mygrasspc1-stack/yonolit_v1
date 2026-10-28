@@ -140,6 +140,136 @@
     "font-size": "18px",
     "color": "#00162e"
    }
+  },
+  {
+   "page": "home",
+   "selector": "div.ilinks-head > div > p.kicker",
+   "props": {
+    "font-size": "16px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "#ilinks-index",
+   "props": {
+    "font-size": "25px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(1) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(1) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(2) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(2) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(4) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(4) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(3) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(3) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(5) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(5) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(6) > b",
+   "props": {
+    "font-size": "14px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "a.ilink:nth-of-type(6) > span",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "p.ilinks-side",
+   "props": {
+    "font-size": "15px",
+    "color": "#080217"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "div:nth-of-type(2) > span.footer-label",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "div:nth-of-type(3) > span.footer-label",
+   "props": {
+    "font-size": "13px"
+   }
+  },
+  {
+   "page": "home",
+   "selector": "div.footer-end:nth-of-type(4) > span",
+   "props": {
+    "gap": "0px",
+    "flex-direction": "column",
+    "justify-content": "flex-end",
+    "object-fit": "fill"
+   }
   }
  ]
 }

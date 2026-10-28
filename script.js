@@ -238,3 +238,42 @@ if (splineHost) {
     }, 30000);
   }
 }
+
+/* آیکون‌های پیام‌رسان در کف فوتر: با رسیدن کاربر به انتهای صفحه،
+   آیکون‌ها از بالا می‌افتند و روی لبهٔ پایین سایت می‌نشینند.
+   کلاس حالت اولیه فقط از همین‌جا اضافه می‌شود؛ اگر جاوااسکریپت اجرا نشود
+   آیکون‌ها از ابتدا سر جای خودشان دیده می‌شوند (بدون پرش یا عنصر نامرئی). */
+(() => {
+  const rail = document.querySelector('.social-rail');
+  if (!rail) return;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const items = Array.from(rail.querySelectorAll('.social-item'));
+  if (!items.length) return;
+
+  let done = false;
+  const land = () => {
+    if (done) return;
+    done = true;
+    items.forEach((el, i) => {
+      /* تاخیر پله‌ای: اول تلگرام، بعد ایتا، بعد بله — مثل افتادن پی‌درپی */
+      el.style.transitionDelay = (i * 90) + 'ms';
+      el.classList.add('is-landed');
+    });
+  };
+
+  rail.classList.add('is-falling');
+
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      land();
+      io.disconnect();
+    }
+  }, { threshold: 0.35 });
+
+  io.observe(rail);
+
+  /* تور نجات: اگر ناظر به هر دلیلی شلیک نکند، آیکون‌ها نباید نامرئی بمانند */
+  setTimeout(land, 3500);
+})();
